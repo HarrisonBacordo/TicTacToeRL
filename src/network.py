@@ -17,6 +17,8 @@ decay_rate = 0.1
 global_step = tf.Variable(0, trainable=False)
 init = tf.global_variables_initializer()
 
+
+
 # placeholders
 x = tf.placeholder(shape=[None, num_inputs], dtype=tf.float32)
 yA = tf.placeholder(shape=[None, num_outputsA], dtype=tf.float32)
