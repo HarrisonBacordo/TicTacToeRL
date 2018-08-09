@@ -107,7 +107,7 @@ def res_block(inputs, filters, kernel_size, strides, projection_shortcut, traini
     return inputs
 
 
-def policy_block(inputs, units, training, data_format,):
+def policy_block(inputs, units, training, data_format, ):
     """
     Builds the policy block of the network
     :param inputs:
@@ -141,4 +141,3 @@ def value_block(inputs, units, training, data_format):
     inputs = tf.layers.dense(inputs, units, activation=tf.nn.relu)
     inputs = tf.layers.dense(inputs, 1, activation=tf.nn.tanh)
     return inputs
-
