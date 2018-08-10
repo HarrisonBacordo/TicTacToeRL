@@ -20,7 +20,6 @@ CONSTANT_VALUE_INPUT = {
 }
 GAME_PLANES = (STEP_HISTORY * NUM_PLAYERS + len(CONSTANT_VALUE_INPUT))
 
-
 def main():
     """
     Runs training loop
@@ -45,14 +44,15 @@ def main():
             for i in range(10):
                 merge = tf.summary.merge_all()
                 inp = tf.zeros([BATCH_SIZE, BOARD_WIDTH, BOARD_HEIGHT, GAME_PLANES])
-                probsP, probsV, action, _ = sess.run(model)
+                action_logits, action_predict, action_prob, value_logits, value_predict, value_prob = sess.run(model)
+                print(action_logits)
+                print(action_predict, value_predict)
                 summary = sess.run(merge)
-                current_state = board.next_state(current_state, action)
+                current_state = board.next_state(current_state, action_predict)
                 states.append(current_state)
-                actions.append(action)
-                probabilities.append(probsP)
+                actions.append(action_predict)
+                probabilities.append(action_logits)
                 trainer_writer.add_summary(summary, epoch)
-                print(probsV)
             # TODO LOGIC FOR BACKPROP HERE
             _, _ = sess.run(train)
 

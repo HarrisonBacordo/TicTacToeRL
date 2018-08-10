@@ -54,8 +54,7 @@ def conv2d_fixed_padding(inputs, filters, kernel_size, strides, data_format):
     return tf.layers.conv2d(
         inputs=inputs, filters=filters, kernel_size=kernel_size, strides=strides,
         padding=('SAME' if strides == 1 else 'VALID'), use_bias=False,
-        kernel_initializer=tf.variance_scaling_initializer(),
-        data_format=data_format)
+        kernel_initializer=tf.variance_scaling_initializer())
 
 
 def conv_block(inputs, filters, kernel_size, strides, training, data_format):
@@ -116,12 +115,13 @@ def policy_block(inputs, units, training, data_format, ):
     :param data_format:
     :return:
     """
-    inputs = conv_block(inputs=inputs, filters=1, kernel_size=1, strides=1, training=training,
+    inputs = conv_block(inputs=inputs, filters=2, kernel_size=1, strides=1, training=training,
                         data_format=data_format)
     inputs = batch_norm(inputs, training, data_format)
     inputs = tf.nn.relu(inputs)
-    inputs = tf.layers.dense(inputs, units, activation=tf.nn.relu)
-    inputs = tf.nn.softmax(inputs)
+    batch_size = inputs.get_shape()[0]
+    inputs = tf.reshape(inputs, shape=[batch_size, -1])
+    inputs = tf.layers.dense(inputs, units, activation=tf.nn.softmax)
     return inputs
 
 
@@ -138,6 +138,8 @@ def value_block(inputs, units, training, data_format):
                         data_format=data_format)
     inputs = batch_norm(inputs, training, data_format)
     inputs = tf.nn.relu(inputs)
+    batch_size = inputs.get_shape()[0]
+    inputs = tf.reshape(inputs, shape=[batch_size, -1])
     inputs = tf.layers.dense(inputs, units, activation=tf.nn.relu)
     inputs = tf.layers.dense(inputs, 1, activation=tf.nn.tanh)
     return inputs

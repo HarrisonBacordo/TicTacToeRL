@@ -35,20 +35,28 @@ def res_model(inputs, training):
     :param training: whether it is in training or not
     :return: the logits for both heads, as well as the most predicted action and its probability
     """
+    # Initial convolution block
     inputs = conv_block(inputs=inputs, filters=CONV_FILTERS, kernel_size=CONV_KERNEL,
                         strides=CONV_STRIDES, training=training, data_format=DATA_FORMAT)
+    # Residual blocks
     for _ in range(NUM_BLOCKS):
         inputs = res_block(inputs=inputs, filters=CONV_FILTERS, kernel_size=CONV_KERNEL,
                            strides=CONV_STRIDES, projection_shortcut=projection_shortcut,
                            training=training, data_format=DATA_FORMAT)
 
-    policy_logits = policy_block(inputs, NUM_OUTPUTS_P, training, DATA_FORMAT)
-    value_logit = value_block(inputs, NUM_OUTPUTS_V, training, DATA_FORMAT)
+    # Evaluate policy head
+    policy_logits = policy_block(inputs, NUM_OUTPUTS_P, training, DATA_FORMAT)[0]
     policy_prediction = tf.argmax(policy_logits)
-    prediction_probability = tf.reduce_max(policy_logits)
+    policy_probability = tf.reduce_max(policy_logits)
+    # Evaluate value head
+    value_logits = value_block(inputs, NUM_OUTPUTS_V, training, DATA_FORMAT)[0]
+    value_prediction = tf.argmax(value_logits)
+    value_probability = tf.reduce_max(value_logits)
+    # summaries
     tf.summary.histogram("predictions", policy_logits)
 
-    return policy_logits, value_logit, policy_prediction, prediction_probability
+    return policy_logits, policy_prediction, policy_probability, \
+           value_logits, value_prediction, value_probability
 
 
 def train_res(logits, labels):
@@ -63,7 +71,7 @@ def train_res(logits, labels):
     optimizer = tf.train.GradientDescentOptimizer(learning_rate).minimize(loss, global_step=global_step)
     return optimizer, loss
 
-# setup
+
+# Setup
 global_step = tf.Variable(0, trainable=False)
 saver = tf.train.Saver()
-
