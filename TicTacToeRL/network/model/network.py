@@ -12,6 +12,19 @@ INIT_LEARN_RATE = 0.1
 DECAY_STEPS = 100000
 DECAY_RATE = 0.1
 
+NUM_EPOCHS = 1
+BATCH_SIZE = 1
+BOARD_WIDTH = 3
+BOARD_HEIGHT = 3
+BOARD_SIZE = 3 * 3
+STEP_HISTORY = 3
+NUM_PLAYERS = 2
+CONSTANT_VALUE_INPUT = {
+    'MOVE_COUNT': tf.placeholder(dtype=tf.int32)
+}
+# GAME_PLANES = (STEP_HISTORY * NUM_PLAYERS + len(CONSTANT_VALUE_INPUT))
+GAME_PLANES = 1
+
 
 def projection_shortcut(inputs):
     """
@@ -75,3 +88,4 @@ def train_res(logits, labels):
 # Setup
 global_step = tf.Variable(0, trainable=False)
 saver = tf.train.Saver()
+

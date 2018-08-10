@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="02288a69-71de-49e7-b44b-8bf6750c7f43" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/TicTacToeBot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/TicTacToeBot.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TicTacToeRL/network/train/self_play.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TicTacToeRL/network/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TicTacToeRL/network/model/blocks.py" beforeDir="false" afterPath="$PROJECT_DIR$/TicTacToeRL/network/model/blocks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TicTacToeRL/game/Board.py" beforeDir="false" afterPath="$PROJECT_DIR$/TicTacToeRL/game/Board.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TicTacToeRL/network/model/network.py" beforeDir="false" afterPath="$PROJECT_DIR$/TicTacToeRL/network/model/network.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TicTacToeRL/network/train/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/TicTacToeRL/network/train/train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TicTacToeRL/network/train/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/TicTacToeRL/network/train/train_loop.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -20,6 +18,7 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/TicTacToeRL$train.coverage" NAME="train Coverage Results" MODIFIED="1533870500999" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TicTacToeRL/network/train" />
     <SUITE FILE_PATH="coverage/TicTacToeRL$network.coverage" NAME="network Coverage Results" MODIFIED="1533866466324" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/src/network" />
+    <SUITE FILE_PATH="coverage/TicTacToeBot$self_play.coverage" NAME="self_play Coverage Results" MODIFIED="1533889800852" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TicTacToeRL/network/train" />
     <SUITE FILE_PATH="coverage/TicTacToeBot$train.coverage" NAME="train Coverage Results" MODIFIED="1533876421435" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/TicTacToeRL/network/train" />
   </component>
   <component name="FileColors">
@@ -30,11 +29,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="network.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="network.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/TicTacToeRL/network/model/network.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="9" column="63" lean-forward="true" selection-start-line="9" selection-start-column="63" selection-end-line="9" selection-end-column="63" />
+            <state relative-caret-position="241">
+              <caret line="94" column="35" lean-forward="true" selection-start-line="94" selection-start-column="35" selection-end-line="94" selection-end-column="35" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
@@ -42,14 +41,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="train.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/TicTacToeRL/network/train/train.py">
+      <file leaf-file-name="train_loop.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TicTacToeRL/network/train/train_loop.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="48" column="52" lean-forward="true" selection-start-line="48" selection-start-column="52" selection-end-line="48" selection-end-column="52" />
+            <state relative-caret-position="276">
+              <caret line="75" selection-start-line="75" selection-end-line="75" />
               <folding>
                 <element signature="e#0#23#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="self_play.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/TicTacToeRL/network/train/self_play.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="127">
+              <caret line="31" selection-start-line="31" selection-end-line="31" />
+              <folding>
+                <element signature="e#0#65#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="session.py" pinned="false" current-in-tab="false">
+        <entry file="file://C:/Anaconda/envs/tensorflow/Lib/site-packages/tensorflow/python/client/session.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="133">
+              <caret line="1373" selection-start-line="1373" selection-end-line="1373" />
             </state>
           </provider>
         </entry>
@@ -57,17 +77,17 @@
       <file leaf-file-name="Board.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TicTacToeRL/game/Board.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-420">
+            <state relative-caret-position="736">
               <caret line="23" selection-start-line="23" selection-end-line="23" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="blocks.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="blocks.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TicTacToeRL/network/model/blocks.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4512">
-              <caret line="141" column="55" selection-start-line="141" selection-start-column="55" selection-end-line="141" selection-end-column="55" />
+            <state relative-caret-position="180">
+              <caret line="56" selection-start-line="56" selection-end-line="56" />
             </state>
           </provider>
         </entry>
@@ -105,6 +125,9 @@
         <option value="$PROJECT_DIR$/src/network/train/train.py" />
         <option value="$PROJECT_DIR$/TicTacToeRL/network/model/blocks.py" />
         <option value="$PROJECT_DIR$/TicTacToeRL/network/train/train.py" />
+        <option value="$PROJECT_DIR$/TicTacToeRL/game/Board.py" />
+        <option value="$PROJECT_DIR$/TicTacToeRL/network/train/self_play.py" />
+        <option value="$PROJECT_DIR$/TicTacToeRL/network/train/train_loop.py" />
         <option value="$PROJECT_DIR$/TicTacToeRL/network/model/network.py" />
       </list>
     </option>
@@ -138,6 +161,19 @@
               <item name="TicTacToeBot" type="b2602c69:ProjectViewProjectNode" />
               <item name="TicTacToeBot" type="462c0819:PsiDirectoryNode" />
               <item name="TicTacToeRL" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TicTacToeBot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TicTacToeBot" type="462c0819:PsiDirectoryNode" />
+              <item name="TicTacToeRL" type="462c0819:PsiDirectoryNode" />
+              <item name="network" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TicTacToeBot" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TicTacToeBot" type="462c0819:PsiDirectoryNode" />
+              <item name="TicTacToeRL" type="462c0819:PsiDirectoryNode" />
+              <item name="network" type="462c0819:PsiDirectoryNode" />
+              <item name="train" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -173,7 +209,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.train">
+  <component name="RunManager" selected="Python.self_play">
     <configuration name="network" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="TicTacToeBot" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -193,6 +229,25 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+    <configuration name="self_play" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="TicTacToeBot" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/TicTacToeRL/network/train" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TicTacToeRL/network/train/self_play.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
     <configuration name="train" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="TicTacToeBot" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -206,7 +261,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TicTacToeRL/network/train/train.py" />
+      <option name="SCRIPT_NAME" value="C:\Projects\PycharmProjects\TicTacToeBot\TicTacToeRL\network\train\train_loop.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -215,9 +270,11 @@
     <list>
       <item itemvalue="Python.network" />
       <item itemvalue="Python.train" />
+      <item itemvalue="Python.self_play" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.self_play" />
         <item itemvalue="Python.train" />
         <item itemvalue="Python.network" />
       </list>
@@ -255,32 +312,41 @@
       <option name="project" value="LOCAL" />
       <updated>1533870693389</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Cleans up output format">
+      <created>1533877958096</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1533877958096</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="right" x="0" y="0" width="434" height="856" id="Documentation" sideWeight="0.5022523" side_tool="true" visible="true" weight="0.16364606" />
-      <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
+      <window_info anchor="right" x="0" y="0" width="434" height="856" id="Documentation" order="6" sideWeight="0.5022523" side_tool="true" visible="true" weight="0.16364606" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" weight="0.32978722" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32890365" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32890365" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.26135105" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11886994" />
-      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.119936034" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="right" id="SciView" sideWeight="0.49774775" weight="0.16364606" />
+      <window_info anchor="right" id="SciView" order="4" sideWeight="0.49774775" weight="0.16364606" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Concurrent Activities Diagram" weight="0.32890365" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.50830567" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.34108528" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" id="Data View" order="3" />
+      <window_info anchor="right" id="Data View" order="5" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
@@ -296,14 +362,56 @@
     <MESSAGE value="Sets up board. Need to fix winner function" />
     <MESSAGE value="Progress on training loop" />
     <MESSAGE value="Successfully runs training loop for resnet, minus MCTS" />
-    <option name="LAST_COMMIT_MESSAGE" value="Successfully runs training loop for resnet, minus MCTS" />
+    <MESSAGE value="Cleans up output format" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleans up output format" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="23" />
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/TicTacToeRL/network/train/self_play.py</url>
+          <line>13</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="39" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/TicTacToeRL/network/model/network.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="9" column="63" lean-forward="true" selection-start-line="9" selection-start-column="63" selection-end-line="9" selection-end-column="63" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TicTacToeRL/network/train/train_loop.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1440">
+          <caret line="48" column="52" lean-forward="true" selection-start-line="48" selection-start-column="52" selection-end-line="48" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TicTacToeRL/game/Board.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="736">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TicTacToeRL/network/model/blocks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4512">
+          <caret line="141" column="55" selection-start-line="141" selection-start-column="55" selection-end-line="141" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/TicTacToeRL/network/model/network.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="512">
@@ -314,7 +422,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TicTacToeRL/network/train/train.py">
+    <entry file="file://$PROJECT_DIR$/TicTacToeRL/network/train/train_loop.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1632">
           <caret line="54" column="28" selection-start-line="54" selection-start-column="28" selection-end-line="54" selection-end-column="28" />
@@ -454,12 +562,6 @@
     <entry file="file://C:/Anaconda/Lib/site-packages/tensorflow/python/keras/engine/base_layer.py" />
     <entry file="file://C:/Anaconda/Lib/site-packages/tensorflow/python/client/session.py" />
     <entry file="file://C:/Anaconda/Lib/site-packages/tensorflow/python/training/optimizer.py" />
-    <entry file="file://$PROJECT_DIR$/TicTacToeRL/network/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TicTacToeRL/network/train/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/logs/desktop.ini" />
     <entry file="file://$PROJECT_DIR$/logs/1/train/events.out.tfevents.1533866490.DESKTOP-GAV7CO2" />
     <entry file="file://C:/Anaconda/envs/tensorflow/Lib/site-packages/tensorflow/python/layers/base.py">
@@ -476,10 +578,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/TicTacToeRL/network/train/train.py">
+    <entry file="file://C:/Anaconda/envs/tensorflow/Lib/site-packages/tensorflow/python/layers/convolutional.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="48" column="52" lean-forward="true" selection-start-line="48" selection-start-column="52" selection-end-line="48" selection-end-column="52" />
+        <state relative-caret-position="-1499">
+          <caret line="131" selection-start-line="131" selection-end-line="131" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TicTacToeRL/network/model/blocks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="56" selection-start-line="56" selection-end-line="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TicTacToeRL/game/Board.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="736">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TicTacToeRL/network/train/self_play.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
+          <folding>
+            <element signature="e#0#65#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Anaconda/envs/tensorflow/Lib/site-packages/tensorflow/python/client/session.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="1373" selection-start-line="1373" selection-end-line="1373" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TicTacToeRL/network/train/train_loop.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="75" selection-start-line="75" selection-end-line="75" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
@@ -488,25 +628,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/TicTacToeRL/network/model/network.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
-          <caret line="9" column="63" lean-forward="true" selection-start-line="9" selection-start-column="63" selection-end-line="9" selection-end-column="63" />
+        <state relative-caret-position="241">
+          <caret line="94" column="35" lean-forward="true" selection-start-line="94" selection-start-column="35" selection-end-line="94" selection-end-column="35" />
           <folding>
             <element signature="e#0#23#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TicTacToeRL/game/Board.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-420">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/TicTacToeRL/network/model/blocks.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4512">
-          <caret line="141" column="55" selection-start-line="141" selection-start-column="55" selection-end-line="141" selection-end-column="55" />
         </state>
       </provider>
     </entry>

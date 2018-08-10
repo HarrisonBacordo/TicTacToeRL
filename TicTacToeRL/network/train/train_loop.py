@@ -18,9 +18,11 @@ NUM_PLAYERS = 2
 CONSTANT_VALUE_INPUT = {
     'MOVE_COUNT': tf.placeholder(dtype=tf.int32)
 }
-GAME_PLANES = (STEP_HISTORY * NUM_PLAYERS + len(CONSTANT_VALUE_INPUT))
+# GAME_PLANES = (STEP_HISTORY * NUM_PLAYERS + len(CONSTANT_VALUE_INPUT))
+GAME_PLANES = 1
 
-def main():
+
+def train_loop():
     """
     Runs training loop
     :return:
@@ -57,5 +59,29 @@ def main():
             _, _ = sess.run(train)
 
 
+class SelfPlayNetwork(object):
+
+    def __init__(self, is_x):
+        self.states = []
+        self.probabilities = []
+        self.actions = []
+        self.rewards = []
+        self.values = []
+        self.sess = tf.Session()
+        self.is_x = is_x
+        self.has_init = False
+
+    def get_move(self, state):
+        self.states.append(state)
+        state = tf.reshape(state, [-1, BOARD_WIDTH, BOARD_HEIGHT, 1])
+        model = res_model(state, True if self.is_x else False)
+        if not self.has_init:
+            self.sess.run(tf.global_variables_initializer())
+        action_logits, action_predict, action_prob, value_logits, value_predict, value_prob = self.sess.run(model)
+        self.actions.append(action_predict)
+        self.states.append(state)
+        return action_predict, self.states
+
+
 if __name__ == '__main__':
-    main()
+    train_loop()

@@ -8,7 +8,7 @@ class Board(object):
 
     def start(self):
         # Returns a representation of the starting state of the game.
-        return np.zeros(shape=[3, 3])
+        return np.zeros(shape=[3, 3], dtype=np.float32)
 
     def current_player(self, state):
         # Takes the game state and returns the current player's
@@ -21,7 +21,7 @@ class Board(object):
         # Takes the game state, and the move to be applied.
         # Returns the new game state.
         temp = state.flatten()
-        temp[play] = 1
+        temp[play] = self.current_player(state)
         return np.reshape(temp, newshape=[3, 3])
 
     def legal_plays(self, state_history):
@@ -40,14 +40,18 @@ class Board(object):
         # check rows and columns
         # TODO FIX INDEX OUT OF RANGE BUG
         for i in range(3):
-            if np.unique(last[i]) == [1] or np.unique(last[:, i]) == [1]:
+            row = np.unique(last[i])
+            col = np.unique(last[:, i])
+            if 1 in row and np.size(row) == 1 or 1 in col and np.size(col) == 1:
                 return 1
-            elif np.unique(last[i]) == [2] or np.unique(last[:, i]) == [2]:
+            elif 2 in row and np.size(row) == 1 or 2 in col and np.size(col) == 1:
                 return 2
+        diag = np.unique(np.diag(last))
+        anti_diag = np.unique(np.diag(last[:, ::-1]))
         # diagonal and anti-diagonal
-        if np.unique(np.diag(last)) == [1] or np.unique(np.diag(last[:, ::-1])) == [1]:
+        if 1 in diag and np.size(diag) == 1 or 1 in anti_diag and np.size(anti_diag) == 1:
             return 1
-        elif np.unique(np.diag(last)) == [2] or np.unique(np.diag(last[:, ::-1])) == [2]:
+        elif 2 in diag and np.size(diag) == 1 or 2 in anti_diag and np.size(anti_diag) == 1:
             return 2
         # check tie
         if 0 not in last:
